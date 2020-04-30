@@ -5,7 +5,7 @@ export default function SignedInLinks() {
   return (
     <ul className="right">
       <li>
-        <NavLink to="/">New Fight</NavLink>
+        <NavLink to="/create">New Fight</NavLink>
       </li>
       <li>
         <NavLink to="/">Log out</NavLink>
