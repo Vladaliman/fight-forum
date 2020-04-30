@@ -28,7 +28,7 @@ export default class CreateProject extends Component {
             <textarea id="content" className="materialize-textarea"></textarea>
           </div>
           <div className="input-field">
-            <button className="btn pink lighten-1 z-depth-0">Create</button>
+            <button className="btn grey darken-3 z-depth-0">Create</button>
           </div>
         </form>
       </div>
