@@ -30,3 +30,6 @@ textarea.materialize-textarea:focus:not([readonly]) {
   border-color: #0400ff;
   box-shadow: none;
 }
+.project-sumary {
+  padding: 1rem;
+}
