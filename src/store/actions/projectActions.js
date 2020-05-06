@@ -1,5 +1,3 @@
-import { firestore } from "firebase";
-
 export const createProject = (project) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     //async call
