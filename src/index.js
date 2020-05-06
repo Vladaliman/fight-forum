@@ -7,38 +7,33 @@ import { createStore, applyMiddleware, compose } from "redux";
 import rootReducer from "./store/reducers/rootReducer";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
+
 import {
+  createFirestoreInstance,
   reduxFirestore,
   getFirestore,
-  createFirestoreInstance,
 } from "redux-firestore";
 import { ReactReduxFirebaseProvider, getFirebase } from "react-redux-firebase";
-import fbConfig from "./config/fbConfig";
 import firebase from "firebase/app";
+import fbConfig from "./config/fbConfig";
 
 const store = createStore(
   rootReducer,
   compose(
-    applyMiddleware(thunk.withExtraArgument({ getFirestore, getFirebase })),
+    applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
     reduxFirestore(fbConfig)
   )
 );
 
+const rrfConfig = {
+  userProfile: "users",
+};
 const rrfProps = {
   firebase,
-  config: fbConfig,
+  config: rrfConfig,
   dispatch: store.dispatch,
   createFirestoreInstance,
 };
-
-ReactDOM.render(
-  <Provider store={store}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </Provider>,
-  document.getElementById("root")
-);
 
 ReactDOM.render(
   <Provider store={store}>
@@ -48,7 +43,4 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
