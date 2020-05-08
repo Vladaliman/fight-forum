@@ -19,6 +19,8 @@ function Navbar() {
 }
 const mapStateToProps = (state) => {
   console.log(state);
-  return {};
+  return {
+    auth: state.firebase.auth,
+  };
 };
 export default connect(mapStateToProps)(Navbar);
