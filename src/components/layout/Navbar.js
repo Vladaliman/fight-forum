@@ -4,15 +4,16 @@ import SignedInLinks from "./SignedInLinks";
 import SignedOutLinks from "./SignedOutLinks";
 import { connect } from "react-redux";
 
-function Navbar() {
+function Navbar(props) {
+  const { auth } = props;
+  const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />;
   return (
     <nav className="nav-wraper grey darken-3">
       <div className="container">
         <Link to="/" className="brand-logo">
           Fight Forum
         </Link>
-        <SignedInLinks />
-        <SignedOutLinks />
+        {auth.isLoaded && links}
       </div>
     </nav>
   );
