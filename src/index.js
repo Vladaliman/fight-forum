@@ -15,6 +15,7 @@ import {
 import { ReactReduxFirebaseProvider, getFirebase } from "react-redux-firebase";
 import firebase from "firebase/app";
 import fbConfig from "./config/fbConfig";
+import "firebase/auth";
 
 const store = createStore(
   rootReducer,
