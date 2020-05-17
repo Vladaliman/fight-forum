@@ -27,6 +27,7 @@ export const signOut = () => {
 
 export const signUp = (newUser) => {
   return (dispatch, getState, { getFirestore }) => {
+    //  eslint-disable-next-line
     const firestore = getFirestore();
     firebase
       .auth()
@@ -37,7 +38,7 @@ export const signUp = (newUser) => {
           .doc(res.user.uid)
           .set({
             firstName: newUser.firstName,
-            lastname: newUser.lastName,
+            lastName: newUser.lastName,
             initials: `${newUser.firstName[0]}${newUser.lastName[0]}`,
           });
       })
